@@ -12,8 +12,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.12'  # Version 3.12
-        node-version: '20'
+        python-version: '3.12'
 
     - name: Install Dependencies
       run: |
@@ -23,8 +22,12 @@ jobs:
       run: |
         pyinstaller --onefile --windowed main.py
 
-    - name: Upload Artifacts
+    - name: List Files in Dist
+      run: |
+        dir ./dist
+
+    - name: Upload Executable as Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: compiled-app
-        path: ./dist/AjustarSEPA.exe
+        name: compiled-application
+        path: ./dist/*.exe
