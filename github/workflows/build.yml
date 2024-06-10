@@ -1,0 +1,29 @@
+name: Build Application
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # Ajusta a la versión que necesites
+
+    - name: Install Dependencies
+      run: |
+        pip install pyinstaller
+
+    - name: Compile with PyInstaller
+      run: |
+        pyinstaller --onefile --windowed your_script.py
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: compiled-app
+        path: ./dist/your_executable.exe
