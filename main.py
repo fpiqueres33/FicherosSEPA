@@ -3,7 +3,7 @@ from tkinter import filedialog, messagebox
 import xml.etree.ElementTree as ET
 from datetime import datetime
 
-
+# Programa para el tratamiento de ficheros SEPA de transferencia. Ajuste de caracteres y añadir Sufijo
 def replace_characters(text):
     replacements = {
         '/': '.',
