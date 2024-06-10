@@ -12,7 +12,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.12'  # Ajusta a la versión que necesites
+        python-version: '3.12'  # Version 3.12
         node-version: '20'
 
     - name: Install Dependencies
@@ -21,7 +21,7 @@ jobs:
 
     - name: Compile with PyInstaller
       run: |
-        pyinstaller --onefile --windowed your_script.py
+        pyinstaller --onefile --windowed main.py
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2
